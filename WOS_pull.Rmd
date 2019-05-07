@@ -1,0 +1,38 @@
+---
+title: "WOS_pull"
+author: "Jessica"
+date: "5/7/2019"
+output: html_document
+---
+
+## Load packages
+```{r, echo=FALSE}
+library(tidyverse)
+library(wosr)
+```
+
+## 
+```{r, echo=FALSE}
+# Must have IP-based access to WOS API or login/password
+#SID <- auth(username = NULL, password = NULL)
+
+#queries <- c("TS = (global AND environment* AND food)", "TS = (global AND environment* AND diet*)",
+#                  "TS = (global AND sustainab* AND food)", "TS = (global AND sustainab* AND diet*)")
+#names(queries) <- c("search1", "search2", "search3", "search4")
+
+#refs <- pull_wos_apply(queries, sid = SID)
+
+#saveRDS(refs, file = "refs.rds")
+```
+
+```{r, echo=FALSE}
+refs <- readRDS("Data_outputs/refs.rds")
+```
+
+
+
+
+
+```{r, echo=FALSE}
+
+```
