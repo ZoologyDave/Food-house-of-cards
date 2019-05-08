@@ -9,6 +9,7 @@ output: html_document
 ```{r, echo=FALSE}
 library(tidyverse)
 library(wosr)
+library(ggplot2)
 ```
 
 ## 
@@ -30,9 +31,17 @@ refs <- readRDS("Data_outputs/refs.rds")
 ```
 
 
-
-
+```{r, echo=FALSE}
+# Convert list to dataframe
+df <- data.frame(publication = refs$publication)
+df$cites.per.year <- df$publication.tot_cites/(as.numeric(Sys.Date() - df$publication.date)/365)
+```
 
 ```{r, echo=FALSE}
-
+df <- df %>% 
+  filter(cites.per.year > 0)
+g <- ggplot(df, aes(x = reorder(publication.ut, -cites.per.year), y = cites.per.year)) +
+  geom_bar(stat="identity")
+g
 ```
+
